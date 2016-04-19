@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AgendaEletronica.Controllers
 {
-    public class HomeController : Controller
+    public class AgendaController : Controller
     {
         public ActionResult Index()
         {
