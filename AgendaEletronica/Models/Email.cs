@@ -11,6 +11,6 @@ namespace AgendaEletronica.Models
         public int IdEmail { get; set; }
         [EmailAddress(ErrorMessage="E-mail inválido, por favor verifique o endereço informado!")]
         [Display(Name="E-mail")]
-        public string Email { get; set; }
+        public string EmailAddress { get; set; }
     }
 }

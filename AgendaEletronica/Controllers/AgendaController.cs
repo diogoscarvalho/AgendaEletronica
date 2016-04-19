@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgendaEletronica.Factory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,14 +11,15 @@ namespace AgendaEletronica.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var contatos = new ContatoFactory().InicializeObject();
+            return View(contatos);
         }
 
-        public ActionResult About()
+        public ActionResult Details(int id)
         {
-            ViewBag.Message = "Your application description page.";
+            var contatos = new ContatoFactory().InicializeObject();
 
-            return View();
+            return View(contatos.Where(x => x.IdContato == id).FirstOrDefault());
         }
 
         public ActionResult Contact()

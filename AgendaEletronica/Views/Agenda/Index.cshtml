@@ -1,19 +1,10 @@
 ﻿@model IEnumerable<AgendaEletronica.Models.Contato>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create new", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdContato)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
@@ -27,16 +18,8 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalhes", "Details", new {  id=item.IdContato  })
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-    <tr>
-        <td>
-            @foreach (var email in item.Emails)
-            {
-                @Html.Action("Index", "Email", new { model = item.Emails})
-            }
         </td>
     </tr>
 }

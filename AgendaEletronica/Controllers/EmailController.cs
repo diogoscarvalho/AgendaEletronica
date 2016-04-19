@@ -1,4 +1,5 @@
-﻿using AgendaEletronica.Models;
+﻿using AgendaEletronica.Factory;
+using AgendaEletronica.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,13 @@ namespace AgendaEletronica.Controllers
     {
         //
         // GET: /Email/
-        public ActionResult Index(Email model)
+        public PartialViewResult Index(int id)
         {
-            return View();
+            var contatos = new ContatoFactory().InicializeObject();
+
+            var emails = contatos.Where(x => x.IdContato == id).Select(y => y.Emails).ToList();
+
+            return PartialView(emails);
         }
 	}
 }

@@ -7,6 +7,11 @@ namespace AgendaEletronica.Models
 {
     public class Contato
     {
+        public Contato()
+        {
+            Emails = new List<Email>();
+            Telefones = new List<Telefone>();
+        }
         public int IdContato { get; set; }
         public string Nome { get; set; }
         public ICollection<Email> Emails { get; set; }

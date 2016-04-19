@@ -1,21 +1,9 @@
 ﻿@model IEnumerable<AgendaEletronica.Models.Email>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.IdEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.EmailAddress)
         </th>
         <th></th>
     </tr>
@@ -23,17 +11,21 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.IdEmail)
+            @Html.DisplayFor(modelItem => item.EmailAddress)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            <button type="button" class="btn btn-defaul btn-group-sm" name="btnEditarEmail" onclick="editarEmail(@item.IdEmail)">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn btn-defaul btn-group-sm" name="btnRemoverEmail" onclick="removerEmail(@item.IdEmail)">
+                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+            </button>
         </td>
     </tr>
 }
-
 </table>
+<p>
+    <button type="button" id="btnAdicionarArquivo" class="btn btn-defaul btn-group-sm">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+</p>
