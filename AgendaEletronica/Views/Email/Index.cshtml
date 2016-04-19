@@ -8,24 +8,69 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAddress)
-        </td>
-        <td>
-            <button type="button" class="btn btn-defaul btn-group-sm" name="btnEditarEmail" onclick="editarEmail(@item.IdEmail)">
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="btn btn-defaul btn-group-sm" name="btnRemoverEmail" onclick="removerEmail(@item.IdEmail)">
-                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-            </button>
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                <button type="button" class="btn btn-defaul btn-group-sm" name="btnEditarEmail" onclick="editarEmail(@item.IdEmail)">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-defaul btn-group-sm" name="btnRemoverEmail" onclick="removerEmail(@item.IdEmail)">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+    }
 </table>
 <p>
     <button type="button" id="btnAdicionarArquivo" class="btn btn-defaul btn-group-sm">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
 </p>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/bootbox")
+<script type="text/javascript">
+    $(function () {
+
+    });
+
+    function editarEmail(idEmail) {
+
+    }
+
+    function removerEmail(idEmail) {
+        bootbox.dialog({
+            title: 'Excluir E-mail',
+            message: 'Tem certeza que deseja deletar esse e-mail?',
+            buttons: {
+                sim: {
+                    label: "Sim",
+                    className: 'btn-primary',
+                    callback: function () {
+                        $.ajax({
+                            url: 'Email/Deletar/' + idEmail,
+                            method: 'POST'
+                        })
+                        .done(function () {
+                            bootbox.alert("E-mail excluído!");
+                        })
+                        .fail(function () {
+                            bootbox.alert("Falha ao tentar excluir o e-mail!");
+                        });
+                    }
+                },
+                nao: {
+                    label: 'Não',
+                    className: 'btn_primary',
+                    callback: function () {
+
+                    }
+                }
+            }
+        });
+    }
+</script>

@@ -21,7 +21,7 @@
     <div>
         <fieldset>
             <legend>E-mails</legend>
-                @Html.Partial("~/Views/Email/Index.cshtml", Model.Emails)
+                @{ Html.RenderPartial("~/Views/Email/Index.cshtml", Model.Emails); }
         </fieldset>
     </div>
 </div>

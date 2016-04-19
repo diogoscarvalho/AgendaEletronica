@@ -10,6 +10,9 @@ namespace AgendaEletronica
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+            // bootBox plugin Bootstrap para modais e janelas
+            bundles.Add(new ScriptBundle("~/bundles/bootbox").Include(
+                        "~/node_modules/bootbox/bootbox.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
