@@ -1,0 +1,31 @@
+﻿@model AgendaEletronica.Models.Contato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contato</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+    <div>
+        <fieldset>
+            <legend>E-mails</legend>
+                @Html.Partial("~/Views/Email/Index.cshtml", Model.Emails)
+        </fieldset>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdContato }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
