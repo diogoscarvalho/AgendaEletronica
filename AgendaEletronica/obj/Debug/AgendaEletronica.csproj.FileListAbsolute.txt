@@ -24,3 +24,8 @@ C:\MyWorkspace\AgendaEletronica\AgendaEletronica\bin\Newtonsoft.Json.xml
 C:\MyWorkspace\AgendaEletronica\AgendaEletronica\bin\Antlr3.Runtime.pdb
 C:\MyWorkspace\AgendaEletronica\AgendaEletronica\obj\Debug\AgendaEletronica.dll
 C:\MyWorkspace\AgendaEletronica\AgendaEletronica\obj\Debug\AgendaEletronica.pdb
+C:\MyWorkspace\AgendaEletronica\AgendaEletronica\bin\MongoDB.Bson.dll
+C:\MyWorkspace\AgendaEletronica\AgendaEletronica\bin\MongoDB.Driver.Core.dll
+C:\MyWorkspace\AgendaEletronica\AgendaEletronica\bin\MongoDB.Driver.dll
+C:\MyWorkspace\AgendaEletronica\AgendaEletronica\bin\MongoDB.Bson.xml
+C:\MyWorkspace\AgendaEletronica\AgendaEletronica\bin\MongoDB.Driver.xml

@@ -22,11 +22,10 @@ namespace AgendaEletronica.Controllers
             return View(contatos.Where(x => x.IdContato == id).FirstOrDefault());
         }
 
-        public ActionResult Contact()
+        [HttpGet]
+        public ActionResult Create()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return PartialView();
         }
     }
 }

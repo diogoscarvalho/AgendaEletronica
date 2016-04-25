@@ -10,6 +10,10 @@ namespace AgendaEletronica
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery-ui").Include(
+                        "~/Scripts/jquery-ui-{version}.js"));
+
             // bootBox plugin Bootstrap para modais e janelas
             bundles.Add(new ScriptBundle("~/bundles/bootbox").Include(
                         "~/node_modules/bootbox/bootbox.js"));

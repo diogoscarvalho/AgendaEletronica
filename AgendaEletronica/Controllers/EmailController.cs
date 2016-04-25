@@ -11,8 +11,9 @@ namespace AgendaEletronica.Controllers
     public class EmailController : Controller
     {
         //
-        // GET: /Email/
-        public PartialViewResult Index(int id)
+        // POST: /Email/1
+        [HttpPost]
+        public PartialViewResult Deletar(int id)
         {
             var contatos = new ContatoFactory().InicializeObject();
 

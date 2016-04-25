@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace AgendaEletronica.Models
             Emails = new List<Email>();
             Telefones = new List<Telefone>();
         }
+        [BsonId]
         public int IdContato { get; set; }
         public string Nome { get; set; }
         public ICollection<Email> Emails { get; set; }

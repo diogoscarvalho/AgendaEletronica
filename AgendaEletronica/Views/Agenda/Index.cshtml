@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AgendaEletronica.Models.Contato>
 
 <p>
-    @Html.ActionLink("Create new", "Create")
+    <input type="button" id="btnCriarNovo" name="btnCriarNovo" class="btn btn-primary" value="Criar contato." />
 </p>
 <table class="table">
     <tr>
@@ -11,17 +11,74 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Detalhes", "Details", new {  id=item.IdContato  })
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.IdContato })
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
 
 </table>
+<div id="divDialog"></div>
+<script type="text/javascript">
+    $(function () {
+        $('#divDialog').load("~/Views/Agenda/Create").dialog({
+            modal: true,
+            title: 'Adicionar novo contato.',
+            autoOpen: false
+        });
+
+        $('#btnCriarNovo').on('click', function () {
+            $('#divDialog').dialog('open');
+        });
+    });
+
+    function AdicionarContatoUI() {
+        $('#modal').dialog({
+            modal: true,
+            open: function () {
+                $(this).load("~/Views/Agenda/Create");
+            }
+        })
+    }
+
+    function AdicionarContato() {
+        var bootboxDialogMessage = "";
+        bootbox.dialog({
+            title: 'Criar novo contato.',
+            message: bootboxDialogMessage,
+            buttons: {
+                sim: {
+                    label: "Sim",
+                    className: 'btn-primary',
+                    callback: function () {
+                        $.ajax({
+                            url: 'Email/Deletar/' + idEmail,
+                            method: 'POST'
+                        })
+                        .done(function () {
+                            bootbox.alert("E-mail excluído!");
+                        })
+                        .fail(function () {
+                            bootbox.alert("Falha ao tentar excluir o e-mail!");
+                        });
+                    }
+                },
+                nao: {
+                    label: 'Não',
+                    className: 'btn_primary',
+                    callback: function () {
+
+                    }
+                }
+            }
+        });
+    }
+</script>
